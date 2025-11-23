@@ -34,7 +34,7 @@ public abstract class Criatura implements ICriatura {
 	@Override
 	public void setEnergia(Integer energia) { 
 		if (energia < 0) {
-			return;
+			throw new EnergiaInvalidaException("La energía no puede ser negativa.");
 		} else if (energia > 200) {
 			this.energia = 200;
 			return;
