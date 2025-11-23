@@ -33,11 +33,11 @@ public class CriaturaTest {
 		assertEquals(Afinidad.TIERRA, c.getAfinidad());
 	}
 	
-	@Test
-	public void queElSetEenergiaNoAcepteComoParametroUnNumeroNegativo() {
-		Criatura c = new Salvaje("Rex", 100, Afinidad.AGUA);
-		c.setEnergia(-20);
-		assertEquals(100, c.getEnergia(), 1);
+	@Test(expected = EnergiaInvalidaException.class)
+	public void dadoQueSeteoEnergiaNegativaQueLanceEnergiaInvalidaException() {
+	    Criatura c = new Salvaje("Rex", 100, Afinidad.AGUA);
+
+	    c.setEnergia(-20);
 	}
 	
 	@Test
